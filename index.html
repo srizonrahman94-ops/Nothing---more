@@ -1,53 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Just a Small Question ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #ffb6d9, transparent 35%),
+        radial-gradient(circle at bottom right, #c9b6ff, transparent 35%),
+        linear-gradient(135deg, #fff0f6, #f4efff);
+
+    position: relative;
+}
+
+/* Background glow */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    animation: glowMove 7s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: #ff8fc7;
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: #a98cff;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes glowMove {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(50px, 40px) scale(1.2);
+    }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.3) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Main card */
+.question {
+    position: relative;
+    z-index: 5;
+
+    width: min(90%, 500px);
+    padding: 55px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(90, 60, 100, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+
+    animation: cardIn 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.85);
+    }
+
+    70% {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a66a8d;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 52px);
+    color: #3d3040;
+    margin-bottom: 35px;
+    line-height: 1.1;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Buttons */
+.btn-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    min-height: 60px;
+}
+
+button {
+    border: none;
+    outline: none;
+
+    min-width: 120px;
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+#yes {
+    color: white;
+    background: linear-gradient(135deg, #ff5fa2, #ff3d81);
+
+    box-shadow:
+        0 10px 25px rgba(255, 61, 129, 0.3);
+
+    animation: yesPulse 2s ease-in-out infinite;
+}
+
+@keyframes yesPulse {
+    0%,100% {
+        box-shadow: 0 10px 25px rgba(255,61,129,0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 12px 35px rgba(255,61,129,0.45),
+            0 0 0 8px rgba(255,61,129,0.06);
+    }
+}
+
+#yes:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+#yes:active {
+    transform: scale(0.92);
+}
+
+/* No button */
+#no {
+    color: #555;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+#no:hover {
+    transform: translateY(-3px);
+}
+
+#no:active {
+    transform: scale(0.9);
+}
+
+.hint {
+    min-height: 25px;
+    margin-top: 25px;
+
+    font-size: 15px;
+    color: #9b6683;
+
+    transition: all 0.3s ease;
+}
+
+/* Yes success screen */
+.success {
+    animation: successIn 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes successIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-5deg);
+    }
+
+    70% {
+        transform: scale(1.08) rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.success-heart {
+    font-size: 75px;
+    display: block;
+    margin-bottom: 15px;
+
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.18);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.12);
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+
+    .question {
+        padding: 45px 22px;
+        border-radius: 25px;
+    }
+
+    .btn-row {
+        gap: 12px;
+    }
+
+    button {
+        min-width: 105px;
+        padding: 13px 20px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
 <div class="question" id="question">
-  <p class="eyebrow">just a small question</p>
 
-  <h1>Would you love me?</h1>
+    <p class="eyebrow">just a small question</p>
 
-  <div class="btn-row" id="btnRow">
-    <button type="button" id="yes">Yes</button>
-    <button type="button" id="no">No</button>
-  </div>
+    <h1>Would you love me?</h1>
 
-  <p class="hint" id="hint">&nbsp;</p>
+    <div class="btn-row" id="btnRow">
+
+        <button type="button" id="yes">
+            Yes ❤️
+        </button>
+
+        <button type="button" id="no">
+            No
+        </button>
+
+    </div>
+
+    <p class="hint" id="hint">&nbsp;</p>
+
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const yesButton = document.getElementById("yes");
-  const noButton = document.getElementById("no");
-  const hint = document.getElementById("hint");
-  const question = document.getElementById("question");
+/* =========================
+   ELEMENTS
+========================= */
 
-  if (!yesButton || !noButton || !hint || !question) {
-    console.error("Required elements were not found.");
-    return;
-  }
+const question = document.getElementById("question");
+const yesButton = document.getElementById("yes");
+const noButton = document.getElementById("no");
+const hint = document.getElementById("hint");
 
-  // YES button
-  yesButton.addEventListener("click", function () {
-    question.innerHTML = `
-      <p class="eyebrow">a little answer</p>
-      <h1>Yay! ❤️</h1>
-      <p class="hint">I knew you'd say yes! ✨</p>
-    `;
-  });
 
-  // NO button
-  noButton.addEventListener("click", function () {
-    hint.textContent = "Are you sure? 🥺";
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-    // Move the No button to a random position
-    const maxX = Math.max(0, window.innerWidth - noButton.offsetWidth - 20);
-    const maxY = Math.max(0, window.innerHeight - noButton.offsetHeight - 20);
+function createHeart() {
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["❤️", "💕", "💗", "💖", "💓", "✨"];
+
+    heart.textContent =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    heart.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 13000);
+}
+
+
+/* Create hearts continuously */
+
+setInterval(createHeart, 700);
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+let noCount = 0;
+
+noButton.addEventListener("click", function () {
+
+    noCount++;
+
+    const messages = [
+        "Are you sure? 🥺",
+        "Think again... 💕",
+        "Really? 😭",
+        "You might want to reconsider... 🥹",
+        "The button seems a little shy now 😭",
+        "Nice try! 😂❤️"
+    ];
+
+    hint.textContent =
+        messages[Math.min(noCount - 1, messages.length - 1)];
+
+    /*
+       Make button fixed so it can
+       move anywhere on screen.
+    */
 
     noButton.style.position = "fixed";
+
+    const padding = 20;
+
+    const maxX =
+        window.innerWidth -
+        noButton.offsetWidth -
+        padding;
+
+    const maxY =
+        window.innerHeight -
+        noButton.offsetHeight -
+        padding;
+
+    const x =
+        padding +
+        Math.random() * Math.max(1, maxX - padding);
+
+    const y =
+        padding +
+        Math.random() * Math.max(1, maxY - padding);
+
+    /*
+       Smooth movement
+    */
+
+    noButton.style.transition =
+        "left 0.45s cubic-bezier(.2,.8,.2,1), top 0.45s cubic-bezier(.2,.8,.2,1), transform 0.25s ease";
+
     noButton.style.left = x + "px";
     noButton.style.top = y + "px";
-  });
+
+    noButton.style.transform =
+        "rotate(" +
+        (Math.random() * 20 - 10) +
+        "deg) scale(1.08)";
+
+    setTimeout(() => {
+
+        noButton.style.transform =
+            "rotate(0deg) scale(1)";
+
+    }, 450);
+});
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+yesButton.addEventListener("click", function () {
+
+    /*
+       Create extra hearts
+    */
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+            createHeart();
+        }, i * 70);
+
+    }
+
+    /*
+       Success animation
+    */
+
+    question.innerHTML = `
+
+        <div class="success">
+
+            <span class="success-heart">
+                ❤️
+            </span>
+
+            <p class="eyebrow">
+                that's the answer I wanted
+            </p>
+
+            <h1>
+                Yay! 💕
+            </h1>
+
+            <p class="hint">
+                You just made this little moment
+                much more special. ✨
+            </p>
+
+        </div>
+
+    `;
 
 });
+
+
+/* =========================
+   PREVENT DOUBLE CLICK
+========================= */
+
+yesButton.addEventListener("dblclick", function(event) {
+    event.preventDefault();
+});
+
 </script>
+
+</body>
+</html>
