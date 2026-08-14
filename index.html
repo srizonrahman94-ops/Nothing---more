@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Question For You 💌</title>
+<title>একটু প্রশ্ন... 💌</title>
 
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -33,84 +34,99 @@ body{
     justify-content:center;
 
     font-family:
-        -apple-system,
-        BlinkMacSystemFont,
         "Segoe UI",
+        "Noto Sans Bengali",
         sans-serif;
 
     background:
         radial-gradient(
             circle at 15% 15%,
-            rgba(255,150,205,.30),
+            rgba(255,150,205,.32),
             transparent 32%
         ),
         radial-gradient(
-            circle at 85% 85%,
-            rgba(151,132,255,.28),
+            circle at 85% 80%,
+            rgba(151,132,255,.30),
             transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,220,239,.28),
+            transparent 45%
         ),
         linear-gradient(
             135deg,
-            #fff7fb,
-            #f4f1ff
+            #fff5fa,
+            #f3efff
         );
 
     position:relative;
 }
 
 
-/* =========================
-   BACKGROUND GLOW
-========================= */
+/* =====================================================
+   ROMANTIC BACKGROUND GLOW
+===================================================== */
 
-.ambient{
+.glow{
 
     position:fixed;
 
-    width:420px;
-    height:420px;
-
     border-radius:50%;
-
-    filter:blur(110px);
-
-    opacity:.32;
 
     pointer-events:none;
 
+    filter:blur(100px);
+
+    opacity:.35;
+
     animation:
-        ambientMove 12s ease-in-out infinite alternate;
+        glowMove 12s
+        ease-in-out
+        infinite
+        alternate;
 }
 
-.ambient.one{
-    background:#ff82bd;
-    top:-220px;
-    left:-180px;
+.glow.one{
+
+    width:430px;
+    height:430px;
+
+    background:#ff79b4;
+
+    left:-220px;
+    top:-200px;
 }
 
-.ambient.two{
-    background:#8f83ff;
-    right:-200px;
+.glow.two{
+
+    width:430px;
+    height:430px;
+
+    background:#8e7cff;
+
+    right:-220px;
     bottom:-220px;
+
     animation-delay:3s;
 }
 
-.ambient.three{
+.glow.three{
 
-    width:260px;
-    height:260px;
+    width:280px;
+    height:280px;
 
-    background:#ffc8e4;
+    background:#ffc7e3;
 
-    left:42%;
-    top:25%;
+    left:40%;
+    top:30%;
 
-    opacity:.18;
+    opacity:.20;
 
-    animation-duration:16s;
+    animation-duration:17s;
 }
 
-@keyframes ambientMove{
+@keyframes glowMove{
 
     0%{
         transform:
@@ -120,65 +136,81 @@ body{
 
     100%{
         transform:
-            translate(90px,60px)
-            scale(1.25);
+            translate(100px,70px)
+            scale(1.3);
     }
 
 }
 
 
-/* =========================
-   STARS
-========================= */
+/* =====================================================
+   LIGHT ORBS
+===================================================== */
 
-.star{
+.orb{
 
     position:fixed;
 
-    width:3px;
-    height:3px;
+    width:8px;
+    height:8px;
 
     border-radius:50%;
 
-    background:white;
+    background:
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.9);
+        0 0 15px
+        rgba(255,255,255,.9);
 
     pointer-events:none;
 
-    opacity:0;
+    opacity:.5;
 
     animation:
-        starTwinkle
-        ease-in-out
+        orbFloat
+        linear
         infinite;
 }
 
-@keyframes starTwinkle{
+@keyframes orbFloat{
 
-    0%,100%{
-        opacity:.05;
-        transform:scale(.5);
+    0%{
+        transform:
+            translateY(100vh)
+            scale(.4);
+
+        opacity:0;
     }
 
-    50%{
-        opacity:.8;
-        transform:scale(1.5);
+    15%{
+        opacity:.7;
+    }
+
+    80%{
+        opacity:.4;
+    }
+
+    100%{
+        transform:
+            translateY(-20vh)
+            scale(1.5);
+
+        opacity:0;
     }
 
 }
 
 
-/* =========================
-   FLOATING PARTICLES
-========================= */
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
 
 .particle{
 
     position:fixed;
 
-    bottom:-40px;
+    bottom:-50px;
 
     pointer-events:none;
 
@@ -187,163 +219,199 @@ body{
     opacity:0;
 
     animation:
-        floatUp
+        particleFloat
         linear
         forwards;
 }
 
-@keyframes floatUp{
+@keyframes particleFloat{
 
     0%{
+
         opacity:0;
 
         transform:
             translateY(0)
             translateX(0)
-            rotate(0deg)
-            scale(.4);
+            rotate(0)
+            scale(.3);
     }
 
     15%{
-        opacity:.7;
+        opacity:.8;
     }
 
     70%{
-        opacity:.5;
+        opacity:.55;
     }
 
     100%{
+
         opacity:0;
 
         transform:
-            translateY(-115vh)
+            translateY(-120vh)
             translateX(
                 calc(
                     var(--drift) * 1px
                 )
             )
-            rotate(40deg)
+            rotate(45deg)
             scale(1.25);
     }
 
 }
 
 
-/* =========================
-   MAIN CARD
-========================= */
+/* =====================================================
+   CARD
+===================================================== */
 
 .question{
 
-    width:min(92%,560px);
+    width:min(92%,580px);
 
-    min-height:410px;
+    min-height:430px;
 
     padding:
-        55px 35px 42px;
+        55px 35px 40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     position:relative;
 
     z-index:10;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     text-align:center;
+
+    border-radius:38px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.68),
-            rgba(255,255,255,.40)
+            rgba(255,255,255,.72),
+            rgba(255,255,255,.38)
         );
 
     backdrop-filter:
-        blur(28px)
-        saturate(140%);
+        blur(30px)
+        saturate(145%);
 
     -webkit-backdrop-filter:
-        blur(28px)
-        saturate(140%);
+        blur(30px)
+        saturate(145%);
 
     border:
-        1px solid rgba(255,255,255,.85);
-
-    border-radius:36px;
+        1px solid
+        rgba(255,255,255,.85);
 
     box-shadow:
+
         0 35px 100px
-        rgba(70,45,90,.16),
+        rgba(70,45,90,.17),
 
         inset 0 1px 0
         rgba(255,255,255,.95),
 
-        inset 0 -1px 0
-        rgba(255,255,255,.25);
+        0 0 0 1px
+        rgba(255,255,255,.2);
 
     animation:
         cardEnter
         1.2s
         cubic-bezier(.16,1,.3,1);
+
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease;
 }
 
-.question::before{
+
+/* Card shining line */
+
+.question::after{
 
     content:"";
 
     position:absolute;
 
-    inset:1px;
+    width:60%;
 
-    border-radius:35px;
+    height:1px;
+
+    top:0;
+
+    left:-70%;
 
     background:
         linear-gradient(
-            120deg,
-            rgba(255,255,255,.35),
-            transparent 45%,
-            rgba(255,255,255,.18)
+            90deg,
+            transparent,
+            rgba(255,255,255,.9),
+            transparent
         );
 
-    pointer-events:none;
+    animation:
+        shine 5s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes shine{
+
+    0%{
+        left:-70%;
+    }
+
+    45%,100%{
+        left:120%;
+    }
+
 }
 
 @keyframes cardEnter{
 
     0%{
+
         opacity:0;
 
         transform:
-            translateY(70px)
-            scale(.82)
-            rotateX(8deg);
+            translateY(80px)
+            scale(.78)
+            rotateX(10deg);
+
+        filter:blur(8px);
     }
 
     65%{
+
         transform:
-            translateY(-7px)
-            scale(1.02)
+            translateY(-8px)
+            scale(1.03)
             rotateX(0);
+
+        filter:blur(0);
     }
 
     100%{
+
         opacity:1;
 
         transform:
             translateY(0)
-            scale(1)
-            rotateX(0);
+            scale(1);
     }
 
 }
 
 
-/* =========================
-   CONTENT ANIMATION
-========================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .question-content{
 
@@ -354,59 +422,59 @@ body{
     z-index:3;
 
     animation:
-        questionIn
-        .75s
+        contentIn
+        .8s
         cubic-bezier(.16,1,.3,1);
 }
 
 .question-content.out{
 
     animation:
-        questionOut
-        .42s
+        contentOut
+        .4s
         ease
         forwards;
 }
 
-@keyframes questionIn{
+@keyframes contentIn{
 
     from{
+
         opacity:0;
 
         transform:
-            translateY(28px)
-            scale(.96)
-            rotateX(-3deg);
+            translateY(30px)
+            scale(.95);
     }
 
     to{
+
         opacity:1;
 
         transform:
             translateY(0)
-            scale(1)
-            rotateX(0);
+            scale(1);
     }
 
 }
 
-@keyframes questionOut{
+@keyframes contentOut{
 
     to{
+
         opacity:0;
 
         transform:
             translateY(-25px)
-            scale(.97)
-            rotateX(3deg);
+            scale(.96);
     }
 
 }
 
 
-/* =========================
+/* =====================================================
    TEXT
-========================= */
+===================================================== */
 
 .eyebrow{
 
@@ -416,11 +484,11 @@ body{
 
     letter-spacing:4px;
 
-    text-transform:uppercase;
-
     color:#a56b91;
 
     margin-bottom:18px;
+
+    text-transform:uppercase;
 
     opacity:.9;
 }
@@ -429,42 +497,46 @@ h1{
 
     font-size:
         clamp(
-            31px,
+            30px,
             7vw,
-            52px
+            51px
         );
 
-    line-height:1.08;
+    line-height:1.18;
 
-    letter-spacing:-1.5px;
+    letter-spacing:-1px;
 
-    color:#403445;
+    color:#403344;
 
     margin-bottom:20px;
+
+    text-shadow:
+        0 4px 20px
+        rgba(100,60,90,.08);
 }
 
 .subtitle{
 
-    max-width:420px;
+    max-width:430px;
 
     margin:
         0 auto 32px;
 
-    color:#7d6d7b;
+    color:#7e6d7c;
 
     font-size:15px;
 
-    line-height:1.75;
+    line-height:1.85;
 }
 
 
-/* =========================
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .btn-row{
 
-    min-height:58px;
+    min-height:60px;
 
     display:flex;
 
@@ -494,18 +566,20 @@ button{
 
     font-weight:650;
 
+    font-family:inherit;
+
     transition:
-        transform .28s cubic-bezier(.16,1,.3,1),
-        box-shadow .28s ease,
-        opacity .25s ease;
+        transform .3s
+        cubic-bezier(.16,1,.3,1),
+        box-shadow .3s ease;
 
     -webkit-tap-highlight-color:transparent;
 }
 
 
-/* =========================
-   YES BUTTON
-========================= */
+/* =====================================================
+   YES
+===================================================== */
 
 .yes{
 
@@ -514,36 +588,39 @@ button{
     background:
         linear-gradient(
             135deg,
-            #ff73ae,
-            #ff3d82
+            #ff76b1,
+            #ff3b80
         );
 
     box-shadow:
-        0 12px 30px
-        rgba(255,70,135,.28);
+        0 13px 35px
+        rgba(255,65,130,.28);
 
     animation:
-        yesPulse
-        2.6s
+        yesGlow
+        2.5s
         ease-in-out
         infinite;
 }
 
-@keyframes yesPulse{
+@keyframes yesGlow{
 
     0%,100%{
+
         box-shadow:
-            0 12px 30px
-            rgba(255,70,135,.22);
+            0 13px 35px
+            rgba(255,65,130,.22);
     }
 
     50%{
-        box-shadow:
-            0 14px 38px
-            rgba(255,70,135,.40),
 
-            0 0 0 8px
-            rgba(255,70,135,.06);
+        box-shadow:
+
+            0 16px 42px
+            rgba(255,65,130,.40),
+
+            0 0 0 9px
+            rgba(255,65,130,.06);
     }
 
 }
@@ -552,30 +629,30 @@ button{
 
     transform:
         translateY(-5px)
-        scale(1.05);
+        scale(1.06);
 }
 
 .yes:active{
 
     transform:
-        scale(.91);
+        scale(.90);
 }
 
 
-/* =========================
-   NO BUTTON
-========================= */
+/* =====================================================
+   NO
+===================================================== */
 
 .no{
 
-    color:#655767;
+    color:#665767;
 
     background:
-        rgba(255,255,255,.82);
+        rgba(255,255,255,.88);
 
     box-shadow:
-        0 8px 22px
-        rgba(40,30,50,.08);
+        0 9px 25px
+        rgba(50,35,60,.08);
 }
 
 .no:hover{
@@ -591,19 +668,19 @@ button{
 }
 
 
-/* =========================
+/* =====================================================
    HINT
-========================= */
+===================================================== */
 
 .hint{
 
-    min-height:25px;
+    min-height:27px;
 
     margin-top:21px;
 
-    font-size:14px;
+    color:#a16c89;
 
-    color:#a16b89;
+    font-size:14px;
 
     transition:
         opacity .3s ease,
@@ -611,9 +688,9 @@ button{
 }
 
 
-/* =========================
+/* =====================================================
    PROGRESS
-========================= */
+===================================================== */
 
 .progress{
 
@@ -625,7 +702,7 @@ button{
 
     gap:6px;
 
-    margin-top:27px;
+    margin-top:28px;
 }
 
 .dot{
@@ -635,7 +712,7 @@ button{
 
     border-radius:10px;
 
-    background:#dcd3dc;
+    background:#ddd3dc;
 
     transition:
         all .45s
@@ -644,43 +721,45 @@ button{
 
 .dot.active{
 
-    width:24px;
+    width:25px;
 
-    background:#ff6aa6;
+    background:#ff69a6;
 
     box-shadow:
-        0 0 10px
-        rgba(255,106,166,.3);
+        0 0 12px
+        rgba(255,105,166,.35);
 }
 
 
-/* =========================
+/* =====================================================
    FINAL SCREEN
-========================= */
+===================================================== */
 
 .final{
 
     width:100%;
 
     animation:
-        finalReveal
-        1.1s
+        finalIn
+        1.2s
         cubic-bezier(.16,1,.3,1);
 }
 
-@keyframes finalReveal{
+@keyframes finalIn{
 
     0%{
+
         opacity:0;
 
         transform:
-            scale(.55)
-            translateY(35px);
+            scale(.5)
+            translateY(40px);
 
-        filter:blur(8px);
+        filter:blur(10px);
     }
 
     65%{
+
         transform:
             scale(1.05);
 
@@ -688,6 +767,7 @@ button{
     }
 
     100%{
+
         opacity:1;
 
         transform:
@@ -701,64 +781,60 @@ button{
 
     display:block;
 
-    font-size:78px;
+    font-size:82px;
 
     margin-bottom:15px;
 
     filter:
         drop-shadow(
-            0 12px 20px
-            rgba(255,70,130,.2)
+            0 15px 25px
+            rgba(255,70,130,.22)
         );
 
     animation:
-        heartbeat
+        heartBeat
         1.7s
         ease-in-out
         infinite;
 }
 
-@keyframes heartbeat{
+@keyframes heartBeat{
 
     0%,100%{
         transform:scale(1);
     }
 
-    12%{
-        transform:scale(1.17);
+    15%{
+        transform:scale(1.18);
     }
 
-    25%{
+    30%{
         transform:scale(1);
     }
 
-    38%{
+    45%{
         transform:scale(1.10);
-    }
-
-    52%{
-        transform:scale(1);
     }
 
 }
 
-.final-quote{
+.final-text{
 
-    max-width:420px;
+    max-width:440px;
 
-    margin:0 auto;
+    margin:auto;
 
     color:#756574;
 
     font-size:15px;
 
-    line-height:1.8;
+    line-height:1.9;
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:520px){
 
@@ -766,22 +842,17 @@ button{
 
         width:92%;
 
-        min-height:390px;
+        min-height:400px;
 
         padding:
             45px 22px 35px;
 
-        border-radius:29px;
-    }
-
-    .question::before{
-
-        border-radius:28px;
+        border-radius:30px;
     }
 
     .btn-row{
 
-        gap:10px;
+        gap:9px;
     }
 
     button{
@@ -789,7 +860,7 @@ button{
         min-width:105px;
 
         padding:
-            13px 19px;
+            13px 18px;
 
         font-size:15px;
     }
@@ -797,6 +868,8 @@ button{
     .subtitle{
 
         font-size:14px;
+
+        line-height:1.75;
     }
 
 }
@@ -808,18 +881,18 @@ button{
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      BACKGROUND
-========================= -->
+===================================================== -->
 
-<div class="ambient one"></div>
-<div class="ambient two"></div>
-<div class="ambient three"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div class="glow three"></div>
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN CARD
-========================= -->
+===================================================== -->
 
 <div
     class="question"
@@ -832,20 +905,23 @@ button{
     >
 
         <p class="eyebrow">
-            just a little question
+            তোমার জন্য ছোট্ট কিছু প্রশ্ন
         </p>
 
+
         <h1 id="questionText">
-            Would you love me? ❤️
+            তুমি কি আমাকে ভালোবাসবে? ❤️
         </h1>
+
 
         <p
             class="subtitle"
             id="subtitle"
         >
-            No pressure...
-            just answer from your heart. 🤍
+            কোনো চাপ নেই...
+            শুধু মন থেকে উত্তর দিও। 🤍
         </p>
+
 
         <div class="btn-row">
 
@@ -854,18 +930,20 @@ button{
                 id="yesButton"
                 type="button"
             >
-                Yes ❤️
+                হ্যাঁ ❤️
             </button>
+
 
             <button
                 class="no"
                 id="noButton"
                 type="button"
             >
-                No
+                না
             </button>
 
         </div>
+
 
         <p
             class="hint"
@@ -873,6 +951,7 @@ button{
         >
             &nbsp;
         </p>
+
 
         <div
             class="progress"
@@ -894,74 +973,74 @@ const questions = [
 
     {
         question:
-            "Would you love me? ❤️",
+            "তুমি কি আমাকে ভালোবাসবে? ❤️",
 
         subtitle:
-            "No pressure... just answer from your heart. 🤍"
+            "কোনো চাপ নেই... শুধু মন থেকে উত্তর দিও। 🤍"
     },
 
     {
         question:
-            "Would you choose me again? 🫶",
+            "আবার যদি প্রথমবার দেখা হতো,তাহলে কি আমাকে বেছে নিতে? 🫶",
 
         subtitle:
-            "Even if you had to meet me all over again?"
+            "সবকিছু নতুন করে শুরু করার সুযোগ পেলে?"
     },
 
     {
         question:
-            "Would you smile when you see my name? 😊",
+            "আমার নাম দেখলে কি তোমার মুখে একটু হাসি আসে? 😊",
 
         subtitle:
-            "Be honest... I promise I won't judge."
+            "সত্যি করে বলো... আমি কিন্তু বিচার করব না।"
     },
 
     {
         question:
-            "Would you keep our little moments in your memory? 🌷",
+            "আমাদের ছোট ছোট মুহূর্তগুলো কি তুমি মনে রাখবে? 🌷",
 
         subtitle:
-            "Some moments may be small, but they can still mean a lot."
+            "কিছু মুহূর্ত ছোট হলেও,মনের কাছে অনেক বড় হয়ে থাকে।"
     },
 
     {
         question:
-            "Would you still be there on the difficult days? 🌙",
+            "কঠিন সময় এলেও কি পাশে থাকবে? 🌙",
 
         subtitle:
-            "Because meaningful connections aren't only about the easy days."
+            "কারণ সুন্দর সম্পর্ক শুধু ভালো সময়ের জন্য নয়।"
     },
 
     {
         question:
-            "Would you save a special place for me? 💗",
+            "তোমার হৃদয়ে কি আমার জন্য একটু জায়গা থাকবে? 💗",
 
         subtitle:
-            "Not a huge place... just somewhere I can belong."
+            "খুব বেশি জায়গা নয়... শুধু একটু বিশেষ জায়গা।"
     },
 
     {
         question:
-            "If we could make one more beautiful memory, would you? ✨",
+            "আরেকটা সুন্দর স্মৃতি একসাথে তৈরি করার সুযোগ পেলে কি করবে? ✨",
 
         subtitle:
-            "Sometimes the simplest moments become our favorite ones."
+            "হয়তো সাধারণ একটা মুহূর্তই একদিন সবচেয়ে সুন্দর স্মৃতি হয়ে যাবে।"
     },
 
     {
         question:
-            "Would you choose happiness with me? 🌸",
+            "আমার সঙ্গে কিছু সুন্দর মুহূর্ত ভাগ করে নিতে চাইবে? 🌸",
 
         subtitle:
-            "Because seeing someone happy can be a beautiful thing."
+            "কারণ কারও সঙ্গে আনন্দ ভাগ করে নিলে আনন্দটা আরও সুন্দর হয়ে যায়।"
     },
 
     {
         question:
-            "One last question... 💌",
+            "এই ছোট্ট প্রশ্নগুলোর মাঝে যদি একবারও হাসো...তাহলে কি শেষ পর্যন্ত থাকবে? 💌",
 
         subtitle:
-            "If this little journey made you smile, would you stay for the final surprise?"
+            "কারণ শেষ প্রশ্নটার উত্তর হয়তো একটু বেশি বিশেষ। ✨"
     }
 
 ];
@@ -976,38 +1055,58 @@ let noCount = 0;
 ===================================================== */
 
 const questionBox =
-    document.getElementById("questionBox");
+    document.getElementById(
+        "questionBox"
+    );
 
 const content =
-    document.getElementById("content");
+    document.getElementById(
+        "content"
+    );
 
 const questionText =
-    document.getElementById("questionText");
+    document.getElementById(
+        "questionText"
+    );
 
 const subtitle =
-    document.getElementById("subtitle");
+    document.getElementById(
+        "subtitle"
+    );
 
 const yesButton =
-    document.getElementById("yesButton");
+    document.getElementById(
+        "yesButton"
+    );
 
 const noButton =
-    document.getElementById("noButton");
+    document.getElementById(
+        "noButton"
+    );
 
 const hint =
-    document.getElementById("hint");
+    document.getElementById(
+        "hint"
+    );
 
 const progress =
-    document.getElementById("progress");
+    document.getElementById(
+        "progress"
+    );
 
 
 /* =====================================================
-   AUDIO SYSTEM
+   AUDIO ENGINE
 ===================================================== */
 
 let audioContext = null;
 
+let backgroundGain = null;
 
-/* Create audio only after user interaction */
+
+/* =====================================================
+   INITIALIZE AUDIO
+===================================================== */
 
 function initAudio(){
 
@@ -1034,13 +1133,150 @@ function initAudio(){
 
 
 /* =====================================================
+   ROMANTIC BACKGROUND AMBIENCE
+===================================================== */
+
+function startBackgroundMusic(){
+
+    initAudio();
+
+
+    if(backgroundGain){
+
+        return;
+
+    }
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    backgroundGain =
+        audioContext.createGain();
+
+
+    backgroundGain.gain.setValueAtTime(
+        0,
+        now
+    );
+
+
+    backgroundGain.gain.linearRampToValueAtTime(
+        0.025,
+        now + 3
+    );
+
+
+    backgroundGain.connect(
+        audioContext.destination
+    );
+
+
+    /*
+       Very soft ambient pad
+    */
+
+    const notes = [
+
+        261.63,
+        329.63,
+        392.00,
+        523.25
+
+    ];
+
+
+    notes.forEach(
+        (frequency,index)=>{
+
+            const oscillator =
+                audioContext.createOscillator();
+
+
+            const gain =
+                audioContext.createGain();
+
+
+            oscillator.type =
+                "sine";
+
+
+            oscillator.frequency.value =
+                frequency;
+
+
+            gain.gain.value =
+                0.12;
+
+
+            oscillator.connect(gain);
+
+            gain.connect(
+                backgroundGain
+            );
+
+
+            oscillator.start();
+
+
+            /*
+               Keep the oscillator alive.
+            */
+
+        }
+    );
+
+
+    /*
+       Slow ambient shimmer
+    */
+
+    const shimmer =
+        audioContext.createOscillator();
+
+
+    const shimmerGain =
+        audioContext.createGain();
+
+
+    shimmer.type =
+        "sine";
+
+
+    shimmer.frequency.value =
+        880;
+
+
+    shimmerGain.gain.value =
+        0.018;
+
+
+    shimmer.connect(
+        shimmerGain
+    );
+
+
+    shimmerGain.connect(
+        backgroundGain
+    );
+
+
+    shimmer.start();
+
+}
+
+
+/* =====================================================
    YES SOUND
-   Soft romantic magical chime
 ===================================================== */
 
 function playYesSound(){
 
     initAudio();
+
+    startBackgroundMusic();
+
 
     const now =
         audioContext.currentTime;
@@ -1055,13 +1291,15 @@ function playYesSound(){
         now
     );
 
+
     master.gain.linearRampToValueAtTime(
-        0.18,
-        now + 0.04
+        0.20,
+        now + .04
     );
 
+
     master.gain.exponentialRampToValueAtTime(
-        0.001,
+        .001,
         now + 1.8
     );
 
@@ -1070,6 +1308,10 @@ function playYesSound(){
         audioContext.destination
     );
 
+
+    /*
+       Romantic ascending notes
+    */
 
     const notes = [
 
@@ -1084,54 +1326,50 @@ function playYesSound(){
     notes.forEach(
         (frequency,index)=>{
 
-            const oscillator =
+            const osc =
                 audioContext.createOscillator();
 
             const gain =
                 audioContext.createGain();
 
 
-            oscillator.type =
+            osc.type =
                 "sine";
 
 
-            oscillator.frequency.setValueAtTime(
-                frequency,
-                now
-            );
-
-
-            oscillator.frequency.exponentialRampToValueAtTime(
-                frequency * 1.01,
-                now + 0.8
-            );
+            osc.frequency.value =
+                frequency;
 
 
             gain.gain.setValueAtTime(
                 0,
-                now + index * 0.08
+                now + index*.08
             );
+
 
             gain.gain.linearRampToValueAtTime(
-                0.8,
-                now + index * 0.08 + 0.04
+                .7,
+                now + index*.08 + .04
             );
+
 
             gain.gain.exponentialRampToValueAtTime(
-                0.001,
-                now + 1.6
+                .001,
+                now + 1.5
             );
 
 
-            oscillator.connect(gain);
+            osc.connect(gain);
+
             gain.connect(master);
 
 
-            oscillator.start(
-                now + index * 0.08
+            osc.start(
+                now + index*.08
             );
 
-            oscillator.stop(
+
+            osc.stop(
                 now + 1.8
             );
 
@@ -1143,12 +1381,14 @@ function playYesSound(){
 
 /* =====================================================
    NO SOUND
-   Soft sad descending tone
 ===================================================== */
 
 function playNoSound(){
 
     initAudio();
+
+    startBackgroundMusic();
+
 
     const now =
         audioContext.currentTime;
@@ -1163,14 +1403,16 @@ function playNoSound(){
         now
     );
 
+
     master.gain.linearRampToValueAtTime(
-        0.16,
-        now + 0.05
+        .15,
+        now+.05
     );
 
+
     master.gain.exponentialRampToValueAtTime(
-        0.001,
-        now + 1.5
+        .001,
+        now+1.4
     );
 
 
@@ -1181,8 +1423,9 @@ function playNoSound(){
 
     const notes = [
 
-        440.00,
-        349.23,
+        440,
+        369.99,
+        329.63,
         293.66
 
     ];
@@ -1191,49 +1434,158 @@ function playNoSound(){
     notes.forEach(
         (frequency,index)=>{
 
-            const oscillator =
+            const osc =
                 audioContext.createOscillator();
 
             const gain =
                 audioContext.createGain();
 
 
-            oscillator.type =
+            osc.type =
                 "sine";
 
 
-            oscillator.frequency.setValueAtTime(
-                frequency,
-                now + index * 0.16
-            );
+            osc.frequency.value =
+                frequency;
 
 
             gain.gain.setValueAtTime(
                 0,
-                now + index * 0.16
+                now+index*.14
             );
+
 
             gain.gain.linearRampToValueAtTime(
-                0.65,
-                now + index * 0.16 + 0.04
+                .6,
+                now+index*.14+.04
             );
+
 
             gain.gain.exponentialRampToValueAtTime(
-                0.001,
-                now + index * 0.16 + 0.7
+                .001,
+                now+index*.14+.65
             );
 
 
-            oscillator.connect(gain);
+            osc.connect(gain);
+
             gain.connect(master);
 
 
-            oscillator.start(
-                now + index * 0.16
+            osc.start(
+                now+index*.14
             );
 
-            oscillator.stop(
-                now + index * 0.16 + 0.75
+
+            osc.stop(
+                now+index*.14+.7
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FINAL SOUND
+===================================================== */
+
+function playFinalSound(){
+
+    initAudio();
+
+
+    const now =
+        audioContext.currentTime;
+
+
+    const master =
+        audioContext.createGain();
+
+
+    master.gain.setValueAtTime(
+        0,
+        now
+    );
+
+
+    master.gain.linearRampToValueAtTime(
+        .22,
+        now+.08
+    );
+
+
+    master.gain.exponentialRampToValueAtTime(
+        .001,
+        now+3
+    );
+
+
+    master.connect(
+        audioContext.destination
+    );
+
+
+    const notes = [
+
+        261.63,
+        329.63,
+        392,
+        523.25,
+        659.25
+
+    ];
+
+
+    notes.forEach(
+        (frequency,index)=>{
+
+            const osc =
+                audioContext.createOscillator();
+
+            const gain =
+                audioContext.createGain();
+
+
+            osc.type =
+                "sine";
+
+
+            osc.frequency.value =
+                frequency;
+
+
+            gain.gain.setValueAtTime(
+                0,
+                now+index*.12
+            );
+
+
+            gain.gain.linearRampToValueAtTime(
+                .55,
+                now+index*.12+.06
+            );
+
+
+            gain.gain.exponentialRampToValueAtTime(
+                .001,
+                now+2.7
+            );
+
+
+            osc.connect(gain);
+
+            gain.connect(master);
+
+
+            osc.start(
+                now+index*.12
+            );
+
+
+            osc.stop(
+                now+3
             );
 
         }
@@ -1250,6 +1602,7 @@ function createProgress(){
 
     progress.innerHTML = "";
 
+
     questions.forEach(
         (_,index)=>{
 
@@ -1257,6 +1610,7 @@ function createProgress(){
                 document.createElement(
                     "span"
                 );
+
 
             dot.className =
                 "dot";
@@ -1287,10 +1641,10 @@ createProgress();
 
 
 /* =====================================================
-   RESET NO BUTTON
+   RESET NO
 ===================================================== */
 
-function resetNoButton(){
+function resetNo(){
 
     noButton.style.position =
         "static";
@@ -1354,7 +1708,7 @@ function nextQuestion(){
             "&nbsp;";
 
 
-        resetNoButton();
+        resetNo();
 
 
         createProgress();
@@ -1391,20 +1745,22 @@ yesButton.addEventListener(
     "click",
     ()=>{
 
-        /* Romantic sound */
+        initAudio();
+
+        startBackgroundMusic();
+
         playYesSound();
 
-        /* Heart animation */
         heartExplosion();
 
-        /* Prevent accidental double clicks */
+
         yesButton.disabled =
             true;
 
 
         setTimeout(
             nextQuestion,
-            480
+            500
         );
 
 
@@ -1413,7 +1769,7 @@ yesButton.addEventListener(
                 yesButton.disabled =
                     false;
             },
-            900
+            1000
         );
 
     }
@@ -1426,19 +1782,19 @@ yesButton.addEventListener(
 
 const noMessages = [
 
-    "Are you really sure? 🥺",
+    "সত্যিই? 🥺",
 
-    "Maybe give that answer another thought... 💕",
+    "আরেকবার ভেবে দেখবে? 💕",
 
-    "Hmm... I'm not convinced. 👀",
+    "হুম... এই উত্তরটা আমি আশা করিনি। 😭",
 
-    "That answer was a little unexpected. 😭",
+    "তোমার উত্তরটা একটু সন্দেহজনক লাগছে। 👀",
 
-    "I'll pretend I didn't hear that. 😂",
+    "আমি ধরে নিচ্ছি তুমি মজা করছো। 😂",
 
-    "Okay... one more chance? 🫶",
+    "আরেকটা সুযোগ দেবো? 🫶",
 
-    "My little button is getting nervous now. 🤍"
+    "আমার ছোট্ট মনটা কিন্তু কষ্ট পেলো। 🤍"
 
 ];
 
@@ -1447,7 +1803,10 @@ noButton.addEventListener(
     "click",
     ()=>{
 
-        /* Sad sound */
+        initAudio();
+
+        startBackgroundMusic();
+
         playNoSound();
 
 
@@ -1457,8 +1816,8 @@ noButton.addEventListener(
         hint.textContent =
             noMessages[
                 Math.min(
-                    noCount - 1,
-                    noMessages.length - 1
+                    noCount-1,
+                    noMessages.length-1
                 )
             ];
 
@@ -1467,7 +1826,7 @@ noButton.addEventListener(
             "fixed";
 
 
-        const padding = 20;
+        const padding = 18;
 
 
         const maxX =
@@ -1487,7 +1846,7 @@ noButton.addEventListener(
             Math.random() *
             Math.max(
                 1,
-                maxX - padding
+                maxX-padding
             );
 
 
@@ -1496,26 +1855,26 @@ noButton.addEventListener(
             Math.random() *
             Math.max(
                 1,
-                maxY - padding
+                maxY-padding
             );
 
 
         noButton.style.transition =
-            "left .55s cubic-bezier(.16,1,.3,1), top .55s cubic-bezier(.16,1,.3,1), transform .3s ease";
+            "left .6s cubic-bezier(.16,1,.3,1), top .6s cubic-bezier(.16,1,.3,1), transform .35s ease";
 
 
         noButton.style.left =
-            x + "px";
+            x+"px";
 
 
         noButton.style.top =
-            y + "px";
+            y+"px";
 
 
         noButton.style.transform =
             "rotate(" +
             (
-                Math.random() * 20 - 10
+                Math.random()*20-10
             ) +
             "deg) scale(1.08)";
 
@@ -1525,7 +1884,7 @@ noButton.addEventListener(
             noButton.style.transform =
                 "rotate(0deg) scale(1)";
 
-        },550);
+        },600);
 
     }
 );
@@ -1546,29 +1905,34 @@ function showFinal(){
             </span>
 
             <p class="eyebrow">
-                the little journey ends here
+                ছোট্ট এই যাত্রার শেষ প্রশ্ন
             </p>
 
             <h1>
-                Thank You. 💕
+                ধন্যবাদ। 💕
             </h1>
 
-            <p class="final-quote">
+            <p class="final-text">
 
-                Some moments don't need
-                a perfect explanation.
-
-                <br><br>
-
-                Sometimes a simple answer,
-                a little smile,
-                or one beautiful memory
-                is enough to make a moment
-                feel special.
+                সব অনুভূতির জন্য
+                সবসময় হাজারটা শব্দের প্রয়োজন হয় না।
 
                 <br><br>
 
-                ✨ Keep smiling. ✨
+                কখনো একটা ছোট্ট হাসি,
+                একটা সুন্দর মুহূর্ত,
+                অথবা একটা আন্তরিক
+                <b>"হ্যাঁ"</b>
+                —একটা সাধারণ দিনকেও
+                অসাধারণ করে দিতে পারে।
+
+                <br><br>
+
+                তোমার হাসিটা সুন্দর থাকুক। 🌸
+
+                <br><br>
+
+                ✨ ভালো থেকো। ✨
 
             </p>
 
@@ -1577,31 +1941,40 @@ function showFinal(){
     `;
 
 
+    playFinalSound();
+
+
     heartExplosion();
 
 
     setTimeout(
         heartExplosion,
-        500
+        450
     );
 
 
     setTimeout(
         heartExplosion,
-        1000
+        900
     );
 
 
     setTimeout(
         heartExplosion,
-        1600
+        1400
+    );
+
+
+    setTimeout(
+        heartExplosion,
+        1900
     );
 
 }
 
 
 /* =====================================================
-   PARTICLES
+   PARTICLE SYSTEM
 ===================================================== */
 
 const symbols = [
@@ -1610,6 +1983,7 @@ const symbols = [
     "♥",
     "💕",
     "💗",
+    "💖",
     "✨",
     "✦",
     "·"
@@ -1639,29 +2013,29 @@ function createParticle(){
 
 
     particle.style.left =
-        Math.random() * 100 +
+        Math.random()*100+
         "vw";
 
 
     particle.style.fontSize =
         (
-            10 +
-            Math.random() * 22
-        ) +
+            10+
+            Math.random()*24
+        )+
         "px";
 
 
     particle.style.animationDuration =
         (
-            5 +
-            Math.random() * 7
-        ) +
+            5+
+            Math.random()*7
+        )+
         "s";
 
 
     particle.style.setProperty(
         "--drift",
-        Math.random() * 160 - 80
+        Math.random()*180-90
     );
 
 
@@ -1686,7 +2060,7 @@ function createParticle(){
 
 setInterval(
     createParticle,
-    700
+    650
 );
 
 
@@ -1697,14 +2071,14 @@ setInterval(
 function heartExplosion(){
 
     for(
-        let i = 0;
-        i < 35;
+        let i=0;
+        i<40;
         i++
     ){
 
         setTimeout(
             createParticle,
-            i * 25
+            i*22
         );
 
     }
@@ -1713,62 +2087,75 @@ function heartExplosion(){
 
 
 /* =====================================================
-   CREATE STARS
+   FLOATING ORBS
 ===================================================== */
 
-function createStars(){
+function createOrb(){
 
-    for(
-        let i = 0;
-        i < 45;
-        i++
-    ){
-
-        const star =
-            document.createElement(
-                "div"
-            );
-
-
-        star.className =
-            "star";
-
-
-        star.style.left =
-            Math.random() * 100 +
-            "vw";
-
-
-        star.style.top =
-            Math.random() * 100 +
-            "vh";
-
-
-        star.style.animationDuration =
-            (
-                2 +
-                Math.random() * 4
-            ) +
-            "s";
-
-
-        star.style.animationDelay =
-            (
-                Math.random() * 4
-            ) +
-            "s";
-
-
-        document.body.appendChild(
-            star
+    const orb =
+        document.createElement(
+            "div"
         );
 
-    }
+
+    orb.className =
+        "orb";
+
+
+    orb.style.left =
+        Math.random()*100+
+        "vw";
+
+
+    orb.style.animationDuration =
+        (
+            7+
+            Math.random()*8
+        )+
+        "s";
+
+
+    orb.style.animationDelay =
+        (
+            Math.random()*5
+        )+
+        "s";
+
+
+    document.body.appendChild(
+        orb
+    );
 
 }
 
-createStars();
 
+for(
+    let i=0;
+    i<18;
+    i++
+){
+
+    createOrb();
+
+}
+
+
+/* =====================================================
+   INITIAL PARTICLES
+===================================================== */
+
+for(
+    let i=0;
+    i<12;
+    i++
+){
+
+    setTimeout(
+        createParticle,
+        i*250
+    );
+
+}
 
 </script>
 
