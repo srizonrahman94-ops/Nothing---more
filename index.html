@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff1f7">
 
-<title>তোমার জন্য একটি ছোট্ট প্রশ্ন 💌</title>
+<title>একটু প্রশ্ন... 💌</title>
 
 <style>
 
-/* ================================
-   BASIC
-================================ */
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -19,16 +19,20 @@
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
 }
 
 body{
+
     min-height:100vh;
+
     overflow:hidden;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -40,371 +44,331 @@ body{
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(255,120,180,.35),
-            transparent 30%
+            circle at 15% 15%,
+            rgba(255,130,190,.28),
+            transparent 34%
         ),
         radial-gradient(
-            circle at 90% 90%,
-            rgba(130,110,255,.30),
-            transparent 35%
+            circle at 85% 85%,
+            rgba(135,120,255,.25),
+            transparent 36%
         ),
         linear-gradient(
             135deg,
-            #fff5fa,
-            #f5f1ff
+            #fff6fa,
+            #f5f2ff
         );
 
     position:relative;
+
+    -webkit-font-smoothing:antialiased;
+
 }
 
 
-/* ================================
+/* =========================================================
    BACKGROUND GLOW
-================================ */
+========================================================= */
 
 .glow{
+
     position:fixed;
+
     border-radius:50%;
+
     pointer-events:none;
+
     filter:blur(90px);
-    opacity:.35;
+
+    will-change:transform;
+
+    transform:translate3d(0,0,0);
+
 }
 
 .glow1{
-    width:420px;
-    height:420px;
+
+    width:380px;
+    height:380px;
+
+    left:-180px;
+    top:-150px;
+
     background:#ff7eb7;
-    left:-220px;
-    top:-180px;
+
+    opacity:.28;
 
     animation:
-        moveGlow1
-        10s
+        glowOne
+        14s
         ease-in-out
         infinite
         alternate;
 }
 
 .glow2{
-    width:420px;
-    height:420px;
-    background:#8b7cff;
-    right:-220px;
-    bottom:-200px;
+
+    width:380px;
+    height:380px;
+
+    right:-180px;
+    bottom:-180px;
+
+    background:#8d7dff;
+
+    opacity:.25;
 
     animation:
-        moveGlow2
-        13s
+        glowTwo
+        16s
         ease-in-out
         infinite
         alternate;
 }
 
-.glow3{
-    width:260px;
-    height:260px;
-    background:#ffc5e0;
-    left:45%;
-    top:35%;
-    opacity:.18;
-
-    animation:
-        pulseGlow
-        7s
-        ease-in-out
-        infinite;
-}
-
-@keyframes moveGlow1{
+@keyframes glowOne{
 
     from{
         transform:
-            translate(0,0)
+            translate3d(0,0,0)
             scale(1);
     }
 
     to{
         transform:
-            translate(100px,80px)
-            scale(1.3);
+            translate3d(80px,60px,0)
+            scale(1.18);
     }
 }
 
-@keyframes moveGlow2{
+@keyframes glowTwo{
 
     from{
         transform:
-            translate(0,0)
+            translate3d(0,0,0)
             scale(1);
     }
 
     to{
         transform:
-            translate(-90px,-70px)
-            scale(1.25);
-    }
-}
-
-@keyframes pulseGlow{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:.12;
-    }
-
-    50%{
-        transform:scale(1.35);
-        opacity:.25;
+            translate3d(-70px,-55px,0)
+            scale(1.2);
     }
 }
 
 
-/* ================================
-   FLOATING HEARTS
-================================ */
-
-.floating{
-    position:fixed;
-
-    bottom:-50px;
-
-    pointer-events:none;
-
-    z-index:2;
-
-    opacity:0;
-
-    animation:
-        floatUp
-        linear
-        forwards;
-}
-
-@keyframes floatUp{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateY(0)
-            translateX(0)
-            scale(.4)
-            rotate(0deg);
-    }
-
-    15%{
-        opacity:.75;
-    }
-
-    70%{
-        opacity:.55;
-    }
-
-    100%{
-        opacity:0;
-
-        transform:
-            translateY(-115vh)
-            translateX(var(--move))
-            scale(1.3)
-            rotate(40deg);
-    }
-}
-
-
-/* ================================
+/* =========================================================
    CARD
-================================ */
+========================================================= */
 
 .card{
 
     width:min(92%,570px);
 
-    min-height:440px;
+    min-height:430px;
 
     padding:
-        52px 30px 38px;
+        50px 28px 36px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    position:relative;
-    z-index:10;
-
     text-align:center;
 
-    border-radius:36px;
+    position:relative;
+
+    z-index:10;
+
+    border-radius:34px;
 
     background:
-        rgba(255,255,255,.62);
+        rgba(255,255,255,.64);
 
     backdrop-filter:
-        blur(28px)
-        saturate(150%);
+        blur(22px);
 
     -webkit-backdrop-filter:
-        blur(28px)
-        saturate(150%);
+        blur(22px);
 
     border:
         1px solid
-        rgba(255,255,255,.85);
+        rgba(255,255,255,.82);
 
     box-shadow:
-        0 35px 90px
-        rgba(75,45,90,.18),
+        0 28px 80px
+        rgba(70,45,90,.15),
 
         inset 0 1px 0
-        rgba(255,255,255,.95);
+        rgba(255,255,255,.9);
+
+    transform:
+        translate3d(0,0,0);
+
+    will-change:
+        transform;
 
     animation:
-        cardShow
-        1.2s
-        cubic-bezier(.16,1,.3,1);
+        cardAppear
+        .9s
+        cubic-bezier(.22,1,.36,1);
+
 }
 
-
-/* Moving shine */
-
-.card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:65%;
-    height:2px;
-
-    top:0;
-    left:-70%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.95),
-            transparent
-        );
-
-    animation:
-        shine
-        5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes shine{
+@keyframes cardAppear{
 
     0%{
-        left:-70%;
-    }
 
-    45%,100%{
-        left:120%;
-    }
-}
-
-@keyframes cardShow{
-
-    0%{
         opacity:0;
 
         transform:
-            translateY(80px)
-            scale(.75);
+            translate3d(0,45px,0)
+            scale(.94);
 
-        filter:blur(10px);
-    }
-
-    70%{
-        transform:
-            translateY(-8px)
-            scale(1.03);
-
-        filter:blur(0);
     }
 
     100%{
+
         opacity:1;
 
         transform:
-            translateY(0)
+            translate3d(0,0,0)
             scale(1);
+
     }
+
 }
 
 
-/* ================================
+/* =========================================================
    CONTENT
-================================ */
+========================================================= */
 
 .content{
+
     width:100%;
 
-    animation:
-        contentIn
-        .8s
-        cubic-bezier(.16,1,.3,1);
+    opacity:1;
+
+    transform:
+        translate3d(0,0,0)
+        scale(1);
+
+    will-change:
+        transform,
+        opacity,
+        filter;
+
 }
 
-.content.hide{
+
+/* Exit animation */
+
+.content.exit{
+
     animation:
-        contentOut
-        .4s
-        ease
+        questionExit
+        .28s
+        cubic-bezier(.4,0,1,1)
         forwards;
+
 }
 
-@keyframes contentIn{
 
-    from{
-        opacity:0;
+/* Enter animation */
 
-        transform:
-            translateY(30px)
-            scale(.94);
-    }
+.content.enter{
 
-    to{
+    animation:
+        questionEnter
+        .48s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+}
+
+
+@keyframes questionExit{
+
+    0%{
+
         opacity:1;
 
         transform:
-            translateY(0)
+            translate3d(0,0,0)
             scale(1);
+
+        filter:
+            blur(0);
+
     }
-}
 
-@keyframes contentOut{
+    100%{
 
-    to{
         opacity:0;
 
         transform:
-            translateY(-25px)
-            scale(.96);
+            translate3d(0,-14px,0)
+            scale(.975);
+
+        filter:
+            blur(3px);
+
     }
+
 }
 
 
-/* ================================
+@keyframes questionEnter{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate3d(0,18px,0)
+            scale(.975);
+
+        filter:
+            blur(3px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+/* =========================================================
    TEXT
-================================ */
+========================================================= */
 
 .eyebrow{
 
     display:inline-block;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
+
+    color:#a56c91;
 
     font-size:11px;
 
     letter-spacing:3px;
 
-    color:#a66b91;
-
     text-transform:uppercase;
+
 }
 
 h1{
@@ -412,17 +376,18 @@ h1{
     color:#403344;
 
     font-size:
-        clamp(30px,7vw,49px);
+        clamp(
+            29px,
+            7vw,
+            48px
+        );
 
     line-height:1.2;
 
-    letter-spacing:-1px;
+    letter-spacing:-.7px;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 
-    text-shadow:
-        0 5px 20px
-        rgba(90,50,80,.08);
 }
 
 .subtitle{
@@ -432,21 +397,22 @@ h1{
     margin:
         0 auto 30px;
 
-    color:#7c6d7b;
+    color:#7b6b7a;
 
     font-size:15px;
 
-    line-height:1.85;
+    line-height:1.8;
+
 }
 
 
-/* ================================
-   BUTTON AREA
-================================ */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .buttons{
 
-    min-height:60px;
+    min-height:58px;
 
     display:flex;
 
@@ -454,20 +420,21 @@ h1{
 
     justify-content:center;
 
-    gap:13px;
+    gap:12px;
+
 }
 
+
 button{
-
-    border:0;
-    outline:0;
-
-    cursor:pointer;
 
     min-width:120px;
 
     padding:
         14px 25px;
+
+    border:0;
+
+    outline:0;
 
     border-radius:50px;
 
@@ -477,239 +444,270 @@ button{
 
     font-weight:700;
 
-    transition:
-        transform .3s
-        cubic-bezier(.16,1,.3,1),
-        box-shadow .3s ease;
+    cursor:pointer;
+
+    user-select:none;
+
+    -webkit-user-select:none;
 
     -webkit-tap-highlight-color:transparent;
+
+    will-change:
+        transform;
+
+    transform:
+        translate3d(0,0,0);
+
 }
 
 
-/* ================================
-   YES BUTTON
-================================ */
+/* =========================================================
+   YES
+========================================================= */
 
 #yes{
 
-    color:white;
+    color:#fff;
 
     background:
         linear-gradient(
             135deg,
-            #ff78b4,
-            #ff3d82
+            #ff78b5,
+            #ff3c81
         );
 
     box-shadow:
-        0 12px 32px
-        rgba(255,55,125,.30);
+        0 10px 28px
+        rgba(255,60,130,.25);
 
     animation:
-        yesPulse
-        2.3s
+        yesBreath
+        2.8s
         ease-in-out
         infinite;
+
 }
 
-@keyframes yesPulse{
+
+@keyframes yesBreath{
 
     0%,100%{
+
         box-shadow:
-            0 12px 32px
-            rgba(255,55,125,.22);
+            0 10px 28px
+            rgba(255,60,130,.22);
+
     }
 
     50%{
-        box-shadow:
-            0 16px 40px
-            rgba(255,55,125,.42),
 
-            0 0 0 9px
-            rgba(255,70,135,.06);
+        box-shadow:
+            0 14px 34px
+            rgba(255,60,130,.34);
+
     }
+
 }
+
 
 #yes:hover{
 
     transform:
-        translateY(-5px)
-        scale(1.06);
+        translate3d(0,-3px,0)
+        scale(1.04);
+
 }
+
 
 #yes:active{
 
     transform:
-        scale(.9);
+        translate3d(0,1px,0)
+        scale(.94);
+
 }
 
 
-/* ================================
-   NO BUTTON
-================================ */
+/* =========================================================
+   NO
+========================================================= */
 
 #no{
 
-    color:#665766;
+    color:#665767;
 
     background:
-        rgba(255,255,255,.9);
+        rgba(255,255,255,.88);
 
     box-shadow:
-        0 9px 22px
+        0 8px 20px
         rgba(50,35,60,.08);
+
+    position:relative;
+
+    transform:
+        translate3d(0,0,0);
+
 }
+
 
 #no:hover{
 
     transform:
-        translateY(-4px);
+        translate3d(0,-3px,0);
+
 }
+
 
 #no:active{
 
-    transform:scale(.92);
+    transform:
+        scale(.94);
+
 }
 
 
-/* ================================
+/* =========================================================
    HINT
-================================ */
+========================================================= */
 
 .hint{
 
-    min-height:26px;
+    min-height:25px;
 
-    margin-top:20px;
+    margin-top:19px;
 
-    color:#a16b89;
+    color:#a06b88;
 
     font-size:14px;
 
-    animation:
-        hintIn
-        .4s
-        ease;
-}
-
-@keyframes hintIn{
-
-    from{
-        opacity:0;
-        transform:translateY(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 
-/* ================================
+/* =========================================================
    PROGRESS
-================================ */
+========================================================= */
 
 .progress{
 
-    margin-top:26px;
+    margin-top:25px;
+
+    height:7px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
+    align-items:center;
+
     gap:6px;
+
 }
 
 .dot{
 
     width:6px;
+
     height:6px;
 
-    border-radius:10px;
+    border-radius:20px;
 
     background:#ddd4dc;
 
     transition:
-        .45s
-        cubic-bezier(.16,1,.3,1);
+        width .35s ease,
+        background .35s ease;
+
 }
 
 .dot.active{
 
-    width:24px;
+    width:23px;
 
-    background:#ff69a6;
+    background:#ff69a5;
 
-    box-shadow:
-        0 0 12px
-        rgba(255,100,165,.4);
 }
 
 
-/* ================================
-   FINAL SCREEN
-================================ */
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particle{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    pointer-events:none;
+
+    z-index:30;
+
+    will-change:
+        transform,
+        opacity;
+
+    transform:
+        translate3d(0,0,0);
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
 
 .final{
 
     width:100%;
 
     animation:
-        finalShow
-        1.2s
-        cubic-bezier(.16,1,.3,1);
+        finalEnter
+        .8s
+        cubic-bezier(.22,1,.36,1);
+
 }
 
-@keyframes finalShow{
+@keyframes finalEnter{
 
-    0%{
+    from{
+
         opacity:0;
 
         transform:
-            scale(.5)
-            translateY(40px);
+            translate3d(0,25px,0)
+            scale(.94);
 
-        filter:blur(8px);
     }
 
-    65%{
-        transform:
-            scale(1.05);
+    to{
 
-        filter:blur(0);
-    }
-
-    100%{
         opacity:1;
 
         transform:
-            scale(1)
-            translateY(0);
+            translate3d(0,0,0)
+            scale(1);
+
     }
+
 }
 
-.heart{
+.final-heart{
 
     display:block;
 
-    font-size:80px;
+    font-size:78px;
 
     margin-bottom:15px;
 
     animation:
         heartbeat
-        1.6s
+        1.7s
         ease-in-out
         infinite;
 
-    filter:
-        drop-shadow(
-            0 15px 25px
-            rgba(255,50,120,.25)
-        );
 }
 
 @keyframes heartbeat{
@@ -719,7 +717,7 @@ button{
     }
 
     15%{
-        transform:scale(1.18);
+        transform:scale(1.16);
     }
 
     30%{
@@ -727,8 +725,9 @@ button{
     }
 
     45%{
-        transform:scale(1.1);
+        transform:scale(1.08);
     }
+
 }
 
 .final-text{
@@ -737,17 +736,18 @@ button{
 
     margin:auto;
 
-    color:#756674;
+    color:#766674;
 
     font-size:15px;
 
     line-height:1.9;
+
 }
 
 
-/* ================================
+/* =========================================================
    MOBILE
-================================ */
+========================================================= */
 
 @media(max-width:520px){
 
@@ -758,13 +758,16 @@ button{
         min-height:410px;
 
         padding:
-            43px 20px 32px;
+            42px 20px 30px;
 
-        border-radius:30px;
+        border-radius:29px;
+
     }
 
     .buttons{
-        gap:9px;
+
+        gap:8px;
+
     }
 
     button{
@@ -775,11 +778,13 @@ button{
             13px 18px;
 
         font-size:15px;
+
     }
 
     .subtitle{
 
         font-size:14px;
+
     }
 
 }
@@ -795,10 +800,9 @@ button{
 
 <div class="glow glow1"></div>
 <div class="glow glow2"></div>
-<div class="glow glow3"></div>
 
 
-<!-- MAIN CARD -->
+<!-- CARD -->
 
 <div class="card" id="card">
 
@@ -819,21 +823,33 @@ button{
 
         <div class="buttons">
 
-            <button id="yes">
+            <button
+                id="yes"
+                type="button"
+            >
                 হ্যাঁ ❤️
             </button>
 
-            <button id="no">
+            <button
+                id="no"
+                type="button"
+            >
                 না
             </button>
 
         </div>
 
-        <p class="hint" id="hint">
+        <p
+            class="hint"
+            id="hint"
+        >
             &nbsp;
         </p>
 
-        <div class="progress" id="progress"></div>
+        <div
+            class="progress"
+            id="progress"
+        ></div>
 
     </div>
 
@@ -842,144 +858,146 @@ button{
 
 <script>
 
-/* =====================================================
-   প্রশ্নগুলোর তালিকা
-===================================================== */
+/* =========================================================
+   QUESTIONS
+========================================================= */
 
 const questions = [
 
-    {
-        q:"তুমি কি আমাকে ভালোবাসবে? ❤️",
-        s:"কোনো চাপ নেই... শুধু মন থেকে উত্তর দিও। 🤍"
-    },
+    [
+        "তুমি কি আমাকে ভালোবাসবে? ❤️",
+        "কোনো চাপ নেই... শুধু মন থেকে উত্তর দিও। 🤍"
+    ],
 
-    {
-        q:"আবার যদি প্রথমবার দেখা হতো,তাহলে কি আমাকে বেছে নিতে? 🫶",
-        s:"সবকিছু নতুন করে শুরু করার সুযোগ পেলে?"
-    },
+    [
+        "আবার যদি প্রথমবার দেখা হতো,তাহলে কি আমাকে বেছে নিতে? 🫶",
+        "সবকিছু নতুন করে শুরু করার সুযোগ পেলে?"
+    ],
 
-    {
-        q:"আমার নাম দেখলে কি তোমার মুখে একটু হাসি আসে? 😊",
-        s:"সত্যি করে বলো... তোমার উত্তরটা জানতে ইচ্ছে করছে।"
-    },
+    [
+        "আমার নাম দেখলে কি তোমার মুখে একটু হাসি আসে? 😊",
+        "সত্যি করে বলো... তোমার উত্তরটা জানতে ইচ্ছে করছে।"
+    ],
 
-    {
-        q:"আমাদের ছোট ছোট মুহূর্তগুলো কি তুমি মনে রাখবে? 🌷",
-        s:"কিছু মুহূর্ত ছোট হলেও,মনের কাছে অনেক বড় হয়ে থাকে।"
-    },
+    [
+        "আমাদের ছোট ছোট মুহূর্তগুলো কি তুমি মনে রাখবে? 🌷",
+        "কিছু মুহূর্ত ছোট হলেও,মনের কাছে অনেক বড় হয়ে থাকে।"
+    ],
 
-    {
-        q:"মন খারাপের দিনে কি আমার সঙ্গে একটু কথা বলতে চাইবে? 🌙",
-        s:"কখনো কখনো একটা ছোট্ট কথাই মনটা ভালো করে দিতে পারে।"
-    },
+    [
+        "মন খারাপের দিনে কি আমার সঙ্গে একটু কথা বলতে চাইবে? 🌙",
+        "কখনো কখনো একটা ছোট্ট কথাই মনটা ভালো করে দিতে পারে।"
+    ],
 
-    {
-        q:"কঠিন সময় এলেও কি আমার পাশে থাকবে? 🤍",
-        s:"কারণ সুন্দর সম্পর্ক শুধু ভালো সময়ের জন্য নয়।"
-    },
+    [
+        "কঠিন সময় এলেও কি আমার পাশে থাকবে? 🤍",
+        "কারণ সুন্দর সম্পর্ক শুধু ভালো সময়ের জন্য নয়।"
+    ],
 
-    {
-        q:"তোমার হৃদয়ে কি আমার জন্য একটু বিশেষ জায়গা থাকবে? 💗",
-        s:"খুব বেশি জায়গা নয়... শুধু একটু বিশেষ জায়গা।"
-    },
+    [
+        "তোমার হৃদয়ে কি আমার জন্য একটু বিশেষ জায়গা থাকবে? 💗",
+        "খুব বেশি জায়গা নয়... শুধু একটু বিশেষ জায়গা।"
+    ],
 
-    {
-        q:"আমার সঙ্গে আরও অনেক সুন্দর স্মৃতি তৈরি করতে চাইবে? ✨",
-        s:"হয়তো আজকের এই ছোট্ট মুহূর্তটাও একদিন স্মৃতি হয়ে যাবে।"
-    },
+    [
+        "আমার সঙ্গে আরও অনেক সুন্দর স্মৃতি তৈরি করতে চাইবে? ✨",
+        "হয়তো আজকের এই মুহূর্তটাও একদিন সুন্দর স্মৃতি হয়ে যাবে।"
+    ],
 
-    {
-        q:"আমার সঙ্গে হাসতে,গল্প করতে আর কিছু সুন্দর সময় কাটাতে চাইবে? 🌸",
-        s:"কারণ সুন্দর সময় ভাগ করে নিলে মুহূর্তগুলো আরও সুন্দর হয়।"
-    },
+    [
+        "আমার সঙ্গে হাসতে,গল্প করতে আর সুন্দর সময় কাটাতে চাইবে? 🌸",
+        "কারণ সুন্দর সময় ভাগ করে নিলে মুহূর্তগুলো আরও সুন্দর হয়।"
+    ],
 
-    {
-        q:"শেষ একটা প্রশ্ন...আমি যদি তোমাকে থাকতে বলি,তুমি কি থাকবে? 💌",
-        s:"এই প্রশ্নটার উত্তরটা হয়তো সবচেয়ে বেশি জানতে ইচ্ছে করছে।"
-    }
+    [
+        "শেষ একটা প্রশ্ন...আমি যদি তোমাকে থাকতে বলি,তুমি কি থাকবে? 💌",
+        "এই প্রশ্নটার উত্তরটাই হয়তো সবচেয়ে বেশি জানতে ইচ্ছে করছে।"
+    ]
 
 ];
 
 
-let current = 0;
-let noCount = 0;
+let current=0;
+
+let noCount=0;
+
+let audio=null;
+
+let audioReady=false;
 
 
-/* =====================================================
-   ELEMENT
-===================================================== */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-const question =
-    document.getElementById("question");
-
-const subtitle =
-    document.getElementById("subtitle");
-
-const yes =
-    document.getElementById("yes");
-
-const no =
-    document.getElementById("no");
-
-const hint =
-    document.getElementById("hint");
-
-const content =
-    document.getElementById("content");
-
-const progress =
-    document.getElementById("progress");
-
-const card =
+const card=
     document.getElementById("card");
 
+const content=
+    document.getElementById("content");
 
-/* =====================================================
-   PROGRESS DOTS
-===================================================== */
+const question=
+    document.getElementById("question");
 
-function updateProgress(){
+const subtitle=
+    document.getElementById("subtitle");
 
-    progress.innerHTML = "";
+const yes=
+    document.getElementById("yes");
 
-    questions.forEach(
-        (_,i)=>{
+const no=
+    document.getElementById("no");
 
-            const dot =
-                document.createElement("span");
+const hint=
+    document.getElementById("hint");
 
-            dot.className="dot";
+const progress=
+    document.getElementById("progress");
 
-            if(i===current){
 
-                dot.classList.add("active");
+/* =========================================================
+   PROGRESS
+========================================================= */
 
-            }
+function progressDots(){
 
-            progress.appendChild(dot);
+    progress.innerHTML="";
+
+    for(
+        let i=0;
+        i<questions.length;
+        i++
+    ){
+
+        const dot=
+            document.createElement("span");
+
+        dot.className="dot";
+
+        if(i===current){
+
+            dot.classList.add("active");
 
         }
-    );
+
+        progress.appendChild(dot);
+
+    }
+
 }
 
-updateProgress();
+progressDots();
 
 
-/* =====================================================
-   AUDIO
-===================================================== */
+/* =========================================================
+   AUDIO INITIALIZE
+========================================================= */
 
-let audioContext = null;
-let musicStarted = false;
+function initAudio(){
 
+    if(!audio){
 
-/* Audio initialize */
-
-function audioStart(){
-
-    if(!audioContext){
-
-        audioContext =
+        audio=
             new (
                 window.AudioContext ||
                 window.webkitAudioContext
@@ -988,547 +1006,281 @@ function audioStart(){
     }
 
     if(
-        audioContext.state === "suspended"
+        audio.state===
+        "suspended"
     ){
 
-        audioContext.resume();
+        audio.resume();
 
     }
 
 }
 
 
-/* =====================================================
-   ROMANTIC BACKGROUND SOUND
-===================================================== */
+/* =========================================================
+   SIMPLE SOFT TONE
+========================================================= */
 
-function startMusic(){
+function tone(
+    frequency,
+    duration,
+    volume,
+    type="sine"
+){
 
-    audioStart();
+    initAudio();
 
-    if(musicStarted) return;
+    const now=
+        audio.currentTime;
 
-    musicStarted = true;
+    const osc=
+        audio.createOscillator();
 
-    const master =
-        audioContext.createGain();
+    const gain=
+        audio.createGain();
 
-    master.gain.value=.018;
 
-    master.connect(
-        audioContext.destination
+    osc.type=type;
+
+    osc.frequency.setValueAtTime(
+        frequency,
+        now
     );
 
 
-    const notes=[
-        261.63,
-        329.63,
-        392,
-        523.25
-    ];
+    gain.gain.setValueAtTime(
+        0,
+        now
+    );
 
 
-    notes.forEach(
-        (frequency,i)=>{
-
-            const oscillator =
-                audioContext.createOscillator();
-
-            const gain =
-                audioContext.createGain();
+    gain.gain.linearRampToValueAtTime(
+        volume,
+        now+.025
+    );
 
 
-            oscillator.type="sine";
-
-            oscillator.frequency.value=
-                frequency;
-
-
-            gain.gain.value=.15;
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        now+duration
+    );
 
 
-            oscillator.connect(gain);
+    osc.connect(gain);
 
-            gain.connect(master);
+    gain.connect(
+        audio.destination
+    );
 
-            oscillator.start();
 
-        }
+    osc.start(now);
+
+    osc.stop(
+        now+duration+.03
     );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    YES SOUND
-===================================================== */
+========================================================= */
 
 function yesSound(){
 
-    audioStart();
-
-    startMusic();
-
-    const now=
-        audioContext.currentTime;
-
-    const notes=[
+    tone(
         523.25,
-        659.25,
-        783.99,
-        1046.50
-    ];
-
-
-    notes.forEach(
-        (frequency,i)=>{
-
-            const oscillator =
-                audioContext.createOscillator();
-
-            const gain =
-                audioContext.createGain();
-
-
-            oscillator.type="sine";
-
-            oscillator.frequency.value=
-                frequency;
-
-
-            gain.gain.setValueAtTime(
-                0,
-                now+i*.08
-            );
-
-
-            gain.gain.linearRampToValueAtTime(
-                .35,
-                now+i*.08+.04
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                .001,
-                now+1.5
-            );
-
-
-            oscillator.connect(gain);
-
-            gain.connect(
-                audioContext.destination
-            );
-
-
-            oscillator.start(
-                now+i*.08
-            );
-
-
-            oscillator.stop(
-                now+1.6
-            );
-
-        }
+        .7,
+        .11
     );
-
-}
-
-
-/* =====================================================
-   NO SOUND
-===================================================== */
-
-function noSound(){
-
-    audioStart();
-
-    startMusic();
-
-    const now=
-        audioContext.currentTime;
-
-
-    const notes=[
-        440,
-        392,
-        349.23,
-        293.66
-    ];
-
-
-    notes.forEach(
-        (frequency,i)=>{
-
-            const oscillator =
-                audioContext.createOscillator();
-
-            const gain =
-                audioContext.createGain();
-
-
-            oscillator.type="sine";
-
-            oscillator.frequency.value=
-                frequency;
-
-
-            gain.gain.setValueAtTime(
-                0,
-                now+i*.13
-            );
-
-
-            gain.gain.linearRampToValueAtTime(
-                .25,
-                now+i*.13+.04
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                .001,
-                now+i*.13+.65
-            );
-
-
-            oscillator.connect(gain);
-
-            gain.connect(
-                audioContext.destination
-            );
-
-
-            oscillator.start(
-                now+i*.13
-            );
-
-
-            oscillator.stop(
-                now+i*.13+.7
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   FINAL SOUND
-===================================================== */
-
-function finalSound(){
-
-    audioStart();
-
-    const now=
-        audioContext.currentTime;
-
-
-    const notes=[
-        261.63,
-        329.63,
-        392,
-        523.25,
-        659.25
-    ];
-
-
-    notes.forEach(
-        (frequency,i)=>{
-
-            const oscillator =
-                audioContext.createOscillator();
-
-            const gain =
-                audioContext.createGain();
-
-
-            oscillator.type="sine";
-
-            oscillator.frequency.value=
-                frequency;
-
-
-            gain.gain.setValueAtTime(
-                0,
-                now+i*.12
-            );
-
-
-            gain.gain.linearRampToValueAtTime(
-                .3,
-                now+i*.12+.06
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                .001,
-                now+2.7
-            );
-
-
-            oscillator.connect(gain);
-
-            gain.connect(
-                audioContext.destination
-            );
-
-
-            oscillator.start(
-                now+i*.12
-            );
-
-
-            oscillator.stop(
-                now+3
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   HEART PARTICLES
-===================================================== */
-
-const symbols=[
-    "♡",
-    "♥",
-    "💕",
-    "💗",
-    "💖",
-    "✨",
-    "✦"
-];
-
-
-function particle(){
-
-    const p=
-        document.createElement("div");
-
-    p.className="floating";
-
-
-    p.textContent=
-        symbols[
-            Math.floor(
-                Math.random()*
-                symbols.length
-            )
-        ];
-
-
-    p.style.left=
-        Math.random()*100+
-        "vw";
-
-
-    p.style.fontSize=
-        12+
-        Math.random()*23+
-        "px";
-
-
-    p.style.animationDuration=
-        5+
-        Math.random()*7+
-        "s";
-
-
-    p.style.setProperty(
-        "--move",
-        Math.random()*180-90+
-        "px"
-    );
-
-
-    document.body.appendChild(p);
-
 
     setTimeout(
         ()=>{
-            p.remove();
+            tone(
+                659.25,
+                .8,
+                .10
+            );
         },
-        13000
+        70
     );
-
-}
-
-
-/* continuously */
-
-setInterval(
-    particle,
-    650
-);
-
-
-/* initial */
-
-for(
-    let i=0;
-    i<15;
-    i++
-){
 
     setTimeout(
-        particle,
-        i*180
+        ()=>{
+            tone(
+                783.99,
+                1,
+                .09
+            );
+        },
+        140
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                1046.5,
+                1.2,
+                .07
+            );
+        },
+        210
     );
 
 }
 
 
-/* =====================================================
-   HEART EXPLOSION
-===================================================== */
+/* =========================================================
+   NO SOUND
+========================================================= */
 
-function heartExplosion(){
+function noSound(){
 
-    for(
-        let i=0;
-        i<45;
-        i++
-    ){
+    tone(
+        440,
+        .45,
+        .08
+    );
 
-        setTimeout(
-            particle,
-            i*20
-        );
+    setTimeout(
+        ()=>{
+            tone(
+                392,
+                .55,
+                .07
+            );
+        },
+        100
+    );
 
-    }
+    setTimeout(
+        ()=>{
+            tone(
+                329.63,
+                .7,
+                .06
+            );
+        },
+        200
+    );
 
 }
 
 
-/* =====================================================
-   RESET NO BUTTON
-===================================================== */
+/* =========================================================
+   BACKGROUND AMBIENCE
+========================================================= */
 
-function resetNo(){
+let ambientStarted=false;
 
-    no.style.position="static";
+function startAmbient(){
 
-    no.style.left="";
+    initAudio();
 
-    no.style.top="";
+    if(ambientStarted)
+        return;
 
-    no.style.transform="";
+    ambientStarted=true;
 
-    no.style.transition="";
+    /*
+       Very quiet background tone.
+       No loop-heavy processing.
+    */
+
+    tone(
+        261.63,
+        3,
+        .015
+    );
+
 }
 
 
-/* =====================================================
-   NEXT QUESTION
-===================================================== */
+/* =========================================================
+   BUTTON PRESS
+========================================================= */
 
-function nextQuestion(){
+function pressEffect(button){
 
-    content.classList.add("hide");
+    button.animate(
 
+        [
+            {
+                transform:
+                    "translate3d(0,0,0) scale(1)"
+            },
 
-    setTimeout(()=>{
+            {
+                transform:
+                    "translate3d(0,1px,0) scale(.94)"
+            },
 
-        current++;
+            {
+                transform:
+                    "translate3d(0,0,0) scale(1)"
+            }
+        ],
 
+        {
+            duration:220,
 
-        if(
-            current >=
-            questions.length
-        ){
-
-            finalScreen();
-
-            return;
+            easing:
+                "cubic-bezier(.22,1,.36,1)"
         }
 
-
-        question.textContent=
-            questions[current].q;
-
-
-        subtitle.textContent=
-            questions[current].s;
-
-
-        hint.innerHTML="&nbsp;";
-
-
-        resetNo();
-
-
-        updateProgress();
-
-
-        content.classList.remove("hide");
-
-        content.classList.remove("content");
-
-        void content.offsetWidth;
-
-        content.classList.add("content");
-
-
-    },400);
+    );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    YES
-===================================================== */
+========================================================= */
 
 yes.addEventListener(
     "click",
     ()=>{
 
-        audioStart();
+        if(
+            content.classList.contains("exit")
+        )
+            return;
 
-        startMusic();
+
+        initAudio();
+
+        startAmbient();
 
         yesSound();
 
-        heartExplosion();
+        pressEffect(yes);
 
-
-        yes.style.transform=
-            "scale(.9)";
-
-
-        setTimeout(
-            ()=>{
-                yes.style.transform="";
-            },
-            180
+        heartBurst(
+            window.innerWidth/2,
+            window.innerHeight/2
         );
 
 
         setTimeout(
             nextQuestion,
-            550
+            360
         );
 
     }
 );
 
 
-/* =====================================================
-   NO
-===================================================== */
+/* =========================================================
+   NO MESSAGES
+========================================================= */
 
 const noMessages=[
 
     "সত্যিই? 🥺",
 
-    "একবার আরেকটু ভেবে দেখবে? 💕",
+    "আরেকবার ভেবে দেখবে? 💕",
 
-    "হুম...এই উত্তরটা কিন্তু আমার মন মানছে না। 🥹",
+    "এই উত্তরটা কিন্তু আমার মন মানছে না। 🥹",
 
     "তুমি কি নিশ্চিত? 👀",
 
@@ -1536,20 +1288,145 @@ const noMessages=[
 
     "আরেকটা সুযোগ নাও... 🫶",
 
-    "আচ্ছা...শেষবারের মতো ভেবে দেখো। 🤍"
+    "শেষবারের মতো ভেবে দেখো। 🤍"
 
 ];
 
+
+/* =========================================================
+   NO BUTTON SMOOTH MOVE
+========================================================= */
+
+function moveNoButton(){
+
+    const rect=
+        no.getBoundingClientRect();
+
+
+    const padding=18;
+
+
+    const maxX=
+        window.innerWidth-
+        rect.width-
+        padding;
+
+
+    const maxY=
+        window.innerHeight-
+        rect.height-
+        padding;
+
+
+    const x=
+        padding+
+        Math.random()*
+        Math.max(
+            1,
+            maxX-padding
+        );
+
+
+    const y=
+        padding+
+        Math.random()*
+        Math.max(
+            1,
+            maxY-padding
+        );
+
+
+    /*
+       IMPORTANT:
+
+       শুধুমাত্র transform ব্যবহার করা হচ্ছে।
+       left/top নয়।
+
+       এতে layout reflow কম হয়
+       এবং animation বেশি smooth হয়।
+    */
+
+    no.style.position="fixed";
+
+    no.style.left="0";
+
+    no.style.top="0";
+
+    no.style.transform=
+
+        `translate3d(
+            ${x}px,
+            ${y}px,
+            0
+        ) rotate(
+            ${Math.random()*14-7}deg
+        ) scale(1.05)`;
+
+
+    no.animate(
+
+        [
+            {
+                transform:
+                    `translate3d(
+                        ${x}px,
+                        ${y}px,
+                        0
+                    )
+                    rotate(0deg)
+                    scale(.96)`
+            },
+
+            {
+                transform:
+                    `translate3d(
+                        ${x}px,
+                        ${y}px,
+                        0
+                    )
+                    rotate(0deg)
+                    scale(1.05)`
+            },
+
+            {
+                transform:
+                    `translate3d(
+                        ${x}px,
+                        ${y}px,
+                        0
+                    )
+                    rotate(0deg)
+                    scale(1)`
+            }
+        ],
+
+        {
+            duration:520,
+
+            easing:
+                "cubic-bezier(.22,1,.36,1)"
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   NO
+========================================================= */
 
 no.addEventListener(
     "click",
     ()=>{
 
-        audioStart();
+        initAudio();
 
-        startMusic();
+        startAmbient();
 
         noSound();
+
+        pressEffect(no);
 
 
         noCount++;
@@ -1564,85 +1441,319 @@ no.addEventListener(
             ];
 
 
-        no.style.position="fixed";
+        moveNoButton();
 
 
-        const padding=20;
+        /*
+           Small sad particle burst
+        */
 
-
-        const maxX=
-            window.innerWidth-
-            no.offsetWidth-
-            padding;
-
-
-        const maxY=
-            window.innerHeight-
-            no.offsetHeight-
-            padding;
-
-
-        const x=
-            padding+
-            Math.random()*
-            Math.max(
-                1,
-                maxX-padding
-            );
-
-
-        const y=
-            padding+
-            Math.random()*
-            Math.max(
-                1,
-                maxY-padding
-            );
-
-
-        no.style.transition=
-            "left .6s cubic-bezier(.16,1,.3,1),top .6s cubic-bezier(.16,1,.3,1),transform .35s ease";
-
-
-        no.style.left=
-            x+"px";
-
-
-        no.style.top=
-            y+"px";
-
-
-        no.style.transform=
-            "rotate("+
-            (
-                Math.random()*20-10
-            )+
-            "deg) scale(1.08)";
-
-
-        setTimeout(
-            ()=>{
-                no.style.transform=
-                    "rotate(0deg) scale(1)";
-            },
-            600
-        );
+        smallBurst();
 
     }
 );
 
 
-/* =====================================================
-   FINAL SCREEN
-===================================================== */
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
 
-function finalScreen(){
+function nextQuestion(){
+
+    content.classList.remove("enter");
+
+    content.classList.add("exit");
+
+
+    setTimeout(
+        ()=>{
+
+            current++;
+
+
+            if(
+                current>=
+                questions.length
+            ){
+
+                showFinal();
+
+                return;
+
+            }
+
+
+            question.textContent=
+                questions[current][0];
+
+
+            subtitle.textContent=
+                questions[current][1];
+
+
+            hint.innerHTML=
+                "&nbsp;";
+
+
+            /*
+               Reset No button
+            */
+
+            no.style.position="relative";
+
+            no.style.left="";
+
+            no.style.top="";
+
+            no.style.transform=
+                "translate3d(0,0,0)";
+
+
+            content.classList.remove(
+                "exit"
+            );
+
+            /*
+               Force animation restart
+            */
+
+            void content.offsetWidth;
+
+            content.classList.add(
+                "enter"
+            );
+
+
+            progressDots();
+
+
+        },
+        280
+    );
+
+}
+
+
+/* =========================================================
+   GPU FRIENDLY PARTICLE
+========================================================= */
+
+const particleSymbols=[
+
+    "♡",
+    "♥",
+    "✨",
+    "✦",
+    "·"
+
+];
+
+
+function createParticle(
+    startX,
+    startY
+){
+
+    const el=
+        document.createElement(
+            "div"
+        );
+
+
+    el.className="particle";
+
+
+    el.textContent=
+        particleSymbols[
+            Math.floor(
+                Math.random()*
+                particleSymbols.length
+            )
+        ];
+
+
+    const size=
+        12+
+        Math.random()*18;
+
+
+    const angle=
+        Math.random()*
+        Math.PI*
+        2;
+
+
+    const distance=
+        50+
+        Math.random()*120;
+
+
+    const endX=
+        Math.cos(angle)*
+        distance;
+
+
+    const endY=
+        Math.sin(angle)*
+        distance;
+
+
+    el.style.fontSize=
+        size+"px";
+
+
+    el.style.left=
+        startX+"px";
+
+
+    el.style.top=
+        startY+"px";
+
+
+    document.body.appendChild(
+        el
+    );
+
+
+    const animation=
+        el.animate(
+
+            [
+
+                {
+                    transform:
+                        "translate3d(0,0,0) scale(.3)",
+
+                    opacity:0
+                },
+
+                {
+                    transform:
+                        "translate3d(0,0,0) scale(1)",
+
+                    opacity:.9,
+
+                    offset:.15
+                },
+
+                {
+                    transform:
+                        `translate3d(
+                            ${endX}px,
+                            ${endY}px,
+                            0
+                        ) scale(.8)`,
+
+                    opacity:0
+                }
+
+            ],
+
+            {
+
+                duration:
+                    700+
+                    Math.random()*500,
+
+                easing:
+                    "cubic-bezier(.22,1,.36,1)",
+
+                fill:"forwards"
+
+            }
+
+        );
+
+
+    animation.finished.then(
+        ()=>{
+            el.remove();
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HEART BURST
+========================================================= */
+
+function heartBurst(x,y){
+
+    /*
+       Only 16 particles.
+       Enough for visual impact
+       without creating lag.
+    */
+
+    for(
+        let i=0;
+        i<16;
+        i++
+    ){
+
+        setTimeout(
+            ()=>{
+                createParticle(
+                    x,
+                    y
+                );
+            },
+            i*18
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL BURST
+========================================================= */
+
+function smallBurst(){
+
+    const rect=
+        no.getBoundingClientRect();
+
+
+    const x=
+        rect.left+
+        rect.width/2;
+
+
+    const y=
+        rect.top+
+        rect.height/2;
+
+
+    for(
+        let i=0;
+        i<6;
+        i++
+    ){
+
+        createParticle(
+            x,
+            y
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FINAL SCREEN
+========================================================= */
+
+function showFinal(){
 
     card.innerHTML=`
 
         <div class="final">
 
-            <span class="heart">
+            <span class="final-heart">
                 ❤️
             </span>
 
@@ -1670,7 +1781,7 @@ function finalScreen(){
 
                 <br><br>
 
-                আজকের এই ছোট্ট মুহূর্তটুকু
+                আজকের এই মুহূর্তটুকু
                 সুন্দর একটা স্মৃতি হয়ে থাকুক। 🌸
 
                 <br><br>
@@ -1684,28 +1795,98 @@ function finalScreen(){
     `;
 
 
-    finalSound();
-
-
-    heartExplosion();
+    tone(
+        523.25,
+        1.5,
+        .10
+    );
 
 
     setTimeout(
-        heartExplosion,
+        ()=>{
+            tone(
+                659.25,
+                1.7,
+                .08
+            );
+        },
+        120
+    );
+
+
+    setTimeout(
+        ()=>{
+            tone(
+                783.99,
+                2,
+                .06
+            );
+        },
+        240
+    );
+
+
+    /*
+       Final burst
+    */
+
+    heartBurst(
+        window.innerWidth/2,
+        window.innerHeight/2
+    );
+
+
+    setTimeout(
+        ()=>{
+            heartBurst(
+                window.innerWidth*.25,
+                window.innerHeight*.35
+            );
+        },
+        250
+    );
+
+
+    setTimeout(
+        ()=>{
+            heartBurst(
+                window.innerWidth*.75,
+                window.innerHeight*.65
+            );
+        },
         500
     );
 
-    setTimeout(
-        heartExplosion,
-        1000
-    );
-
-    setTimeout(
-        heartExplosion,
-        1500
-    );
-
 }
+
+
+/* =========================================================
+   PREVENT DOUBLE CLICK GLITCH
+========================================================= */
+
+let lastClick=0;
+
+document.addEventListener(
+    "click",
+    ()=>{
+        const now=
+            performance.now();
+
+        if(
+            now-lastClick<40
+        ){
+
+            return;
+
+        }
+
+        lastClick=now;
+
+    },
+    {
+        passive:true
+    }
+);
 
 </script>
 
