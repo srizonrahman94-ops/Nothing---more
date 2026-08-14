@@ -1,14 +1,53 @@
 <div class="question" id="question">
+  <p class="eyebrow">just a small question</p>
 
-<p class="eyebrow">just a small question</p>
+  <h1>Would you love me?</h1>
 
-<h1>Would you love me?</h1>
+  <div class="btn-row" id="btnRow">
+    <button type="button" id="yes">Yes</button>
+    <button type="button" id="no">No</button>
+  </div>
 
-<div class="btn-row" id="btnRow">
+  <p class="hint" id="hint">&nbsp;</p>
+</div>
 
-<button id="yes">Yes</button>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-<button id="no">No</button>
- </div>
-<p class="hint" id="hint">&nbsp;</p>
- </div>
+  const yesButton = document.getElementById("yes");
+  const noButton = document.getElementById("no");
+  const hint = document.getElementById("hint");
+  const question = document.getElementById("question");
+
+  if (!yesButton || !noButton || !hint || !question) {
+    console.error("Required elements were not found.");
+    return;
+  }
+
+  // YES button
+  yesButton.addEventListener("click", function () {
+    question.innerHTML = `
+      <p class="eyebrow">a little answer</p>
+      <h1>Yay! ❤️</h1>
+      <p class="hint">I knew you'd say yes! ✨</p>
+    `;
+  });
+
+  // NO button
+  noButton.addEventListener("click", function () {
+    hint.textContent = "Are you sure? 🥺";
+
+    // Move the No button to a random position
+    const maxX = Math.max(0, window.innerWidth - noButton.offsetWidth - 20);
+    const maxY = Math.max(0, window.innerHeight - noButton.offsetHeight - 20);
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noButton.style.position = "fixed";
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+  });
+
+});
+</script>
